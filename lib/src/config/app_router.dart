@@ -1,6 +1,8 @@
 import 'dart:async';
-
-import 'package:flutter_social_media_with_clean_architecture/main.dart';
+import 'package:flutter_social_media_with_clean_architecture/src/feature/auth/presentation/view/login_screen.dart';
+import 'package:flutter_social_media_with_clean_architecture/src/feature/auth/presentation/view/sign_up_screen.dart';
+import 'package:flutter_social_media_with_clean_architecture/src/feature/feed/presentation/view/discover_screen.dart';
+import 'package:flutter_social_media_with_clean_architecture/src/feature/feed/presentation/view/feed_screen.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
 
@@ -11,16 +13,16 @@ class AppRouter {
     routes: [
       GoRoute(
         name: 'feed',
-        path: '/',
+        path: '/feed',
         builder: (BuildContext context, GoRouterState state) {
-          return HomeScreen();
+          return FeedScreen();
         },
       ),
       GoRoute(
           name: 'discover',
           path: '/discover',
           builder: (BuildContext context, GoRouterState state) {
-            return Container();
+            return DiscoverScreen();
           },
           routes: [
             GoRoute(
@@ -33,16 +35,16 @@ class AppRouter {
           ]),
       GoRoute(
           name: 'login',
-          path: '/login',
+          path: '/',
           builder: (BuildContext context, GoRouterState state) {
-            return Container();
+            return LoginScreen();
           },
           routes: [
             GoRoute(
               name: 'signup',
               path: 'signup',
               builder: (BuildContext context, GoRouterState state) {
-                return Container();
+                return SignupScreen();
               },
             )
           ]),
